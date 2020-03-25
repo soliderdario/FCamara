@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Super.Digital.Data.Mappings;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Super.Digital.Data
 {
@@ -16,7 +13,8 @@ namespace Super.Digital.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AccountMapping());
+            modelBuilder.ApplyConfiguration(new CreateAccountMapping());
+            modelBuilder.ApplyConfiguration(new AccountEntryMapping());
         }
     }
 }

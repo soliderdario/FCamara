@@ -1,18 +1,18 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
 using Super.Digital.Domain.Interface;
-using Super.Digital.Domain.Model;
 using Super.Digital.Infrastructure.Notifiers;
 using Super.Digital.WebAPI.ViewModel;
-using System;
+using Super.Digital.Domain.Model;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Super.Digital.WebAPI.Controllers.V1
 {
-    [Authorize]
+    //[Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class AccountController : MainController
@@ -27,7 +27,7 @@ namespace Super.Digital.WebAPI.Controllers.V1
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<CreateAccountViewModel>> Create(CreateAccountViewModel createAccount)
+        public async Task<ActionResult<AccountViewModel>> Create(AccountViewModel createAccount)
         {
             try
             {
@@ -35,6 +35,8 @@ namespace Super.Digital.WebAPI.Controllers.V1
                 {
                     return CustomResponse(ModelState);
                 }
+                var createAccountModel = _mapper.Map<AccountModel>(createAccount);
+                await _accountService.Save(createAccountModel);
             }
             catch (Exception ex)
             {
@@ -43,24 +45,36 @@ namespace Super.Digital.WebAPI.Controllers.V1
             return CustomResponse(createAccount);
         }
 
-        //[HttpPost("save")]
-        //public async Task<ActionResult<AccountViewModel>> Save(AccountingEntryViewModel  accountingEntryViewModel)
-        //{
-        //    try
-        //    {
-        //        if (!ModelState.IsValid)
-        //        {
-        //            return CustomResponse(ModelState);
-        //        }                
+        [HttpGet("list")]
+        public async Task<IEnumerable<AccountViewModel>> List()
+        {
+            try
+            {
+                var result = _mapper.Map<IEnumerable<AccountViewModel>>(await _accountService.Select());
+                return result;
+            }
+            catch (Exception ex)
+            {
+                NotifyError(ex.Message);
+                return (IEnumerable<AccountViewModel>)BadRequest(ex.Message);
+            }
+        }
 
-        //        var accountModel = _mapper.Map<AccountModel>(accountingEntryViewModel);
-        //        await _accountService.Save(accountModel, accountModel);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        NotifyError(ex.Message);
-        //    }
-        //    return CustomResponse(accountingEntryViewModel);
-        //}
+        [HttpDelete("delete/{accountId}")]
+        public async Task<IActionResult> Delete(Guid accountId)
+        {
+            try
+            {
+                var account = _accountService.Select().Result?.Where(src => src.AccountId == accountId).FirstOrDefault();
+                if (account == null) return NotFound();
+                await _accountService.Delete(account);
+            }
+            catch (Exception ex)
+            {
+                NotifyError(ex.Message);
+
+            }
+            return CustomResponse(accountId);
+        }
     }
 }

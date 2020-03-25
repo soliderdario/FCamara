@@ -1,18 +1,17 @@
-﻿using Super.Digital.Data;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Super.Digital.Data;
 using Super.Digital.Data.Repository;
 using Super.Digital.Domain.Interface;
 using Super.Digital.Domain.Model;
 using Super.Digital.Domain.Types;
 using Super.Digital.Domain.Validations;
 using Super.Digital.Infrastructure.Notifiers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Super.Digital.Service
 {
-    public class AccountService : EntityRepository<CreateAccountModel>, IAccountService
+    public class AccountService : EntityRepository<AccountModel>, IAccountService
     {
         private readonly INotifier _notifier;
         private readonly BaseService _baseService;
@@ -24,7 +23,7 @@ namespace Super.Digital.Service
             _baseService = new BaseService(_notifier);
         }
 
-        private void Validation(CreateAccountModel accountModel)
+        private void Validation(AccountModel accountModel)
         {
             if (!_baseService.ExecuteValidation(new AccountValidation(), accountModel)) return;
            
@@ -35,7 +34,7 @@ namespace Super.Digital.Service
             }
         }
 
-        public async Task Save(CreateAccountModel accountModel)
+        public async Task Save(AccountModel accountModel)
         {
             Validation(accountModel);
             if (_notifier.HasNotification())
@@ -52,12 +51,12 @@ namespace Super.Digital.Service
             }
         }
 
-        public async Task Delete(CreateAccountModel accountModel)
+        public async Task Delete(AccountModel accountModel)
         {
             await base.Remove(accountModel);
         }
 
-        public async Task<IEnumerable<CreateAccountModel>> Select()
+        public async Task<IEnumerable<AccountModel>> Select()
         {
             return await base.List();
         }

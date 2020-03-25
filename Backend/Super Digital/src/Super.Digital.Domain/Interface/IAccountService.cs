@@ -8,9 +8,9 @@ namespace Super.Digital.Domain.Interface
 {
     public interface IAccountService
     {
-        Task Save(CreateAccountModel accountModel);
-        Task Delete(CreateAccountModel accountModel);
-        Task<IEnumerable<CreateAccountModel>> Select();
+        Task Save(AccountModel accountModel);
+        Task Delete(AccountModel accountModel);
+        Task<IEnumerable<AccountModel>> Select();
 
     }
 }

@@ -10,7 +10,7 @@ using Super.Digital.Data;
 namespace Super.Digital.Data.Migrations
 {
     [DbContext(typeof(SuperDigitalDbContext))]
-    [Migration("20200324204843_db01")]
+    [Migration("20200325212153_db01")]
     partial class db01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,26 @@ namespace Super.Digital.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Super.Digital.Domain.Model.AccountEntryModel", b =>
+                {
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<DateTime>("DateCreate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Value")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("AccountId");
+
+                    b.ToTable("AccountEntry");
+                });
 
             modelBuilder.Entity("Super.Digital.Domain.Model.AccountModel", b =>
                 {
@@ -39,15 +59,18 @@ namespace Super.Digital.Data.Migrations
                         .HasColumnType("nvarchar(7)")
                         .HasMaxLength(7);
 
-                    b.Property<int>("Transaction")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Value")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("AccountId");
 
                     b.ToTable("Account");
+                });
+
+            modelBuilder.Entity("Super.Digital.Domain.Model.AccountEntryModel", b =>
+                {
+                    b.HasOne("Super.Digital.Domain.Model.AccountModel", "Account")
+                        .WithMany("Entries")
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

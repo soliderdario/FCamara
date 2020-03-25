@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Super.Digital.Domain.Validations
 {
-    public class AccountValidation : AbstractValidator<CreateAccountModel>
+    public class AccountValidation : AbstractValidator<AccountModel>
     {
         public AccountValidation()
         {
@@ -15,9 +15,8 @@ namespace Super.Digital.Domain.Validations
         private bool ValidateDigit(string input)
         {
             var result = string.Join("", Regex.Split(input, @"\b\d{5}-\d{1}\b"));
-            return result.Length == 7;
+            return result.Length == 0;
         }
     }
 
-   
 }

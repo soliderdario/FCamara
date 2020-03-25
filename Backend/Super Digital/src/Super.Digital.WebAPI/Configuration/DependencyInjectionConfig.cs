@@ -18,11 +18,12 @@ namespace Super.Digital.WebAPI.Configuration
         {
             services.AddScoped<INotifier, Notifier>();
             services.AddScoped<SuperDigitalDbContext>();
-            services.AddScoped<IAccountService, AccountService>();            
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IAccountEntryService, AccountEntryService>();
             //services.AddScoped<IUserService, UserService>();
             //services.AddScoped<IAuthenticationService, AuthenticationService>();
             //services.AddScoped<IToken, Token>();
-           
+
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
             return services;
