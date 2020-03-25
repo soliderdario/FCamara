@@ -19,6 +19,7 @@ namespace Super.Digital.WebAPI.ViewModel
     {
         public Guid AccountId { get; set; }
         public decimal Value { get; set; }
+        public string Number { get; set; }
 
     }    
 

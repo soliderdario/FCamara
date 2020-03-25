@@ -1,16 +1,17 @@
-﻿using Super.Digital.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Super.Digital.Data;
 using Super.Digital.Data.Repository;
 using Super.Digital.Domain.Interface;
 using Super.Digital.Domain.Model;
 using Super.Digital.Infrastructure.Notifiers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Super.Digital.Service
 {
-    public class AccountEntryService :EntityRepository<EntryModel>, IAccountEntryService
+    public class AccountEntryService : EntityRepository<AccountEntryModel>, IAccountEntryService
     {
         private readonly INotifier _notifier;
         public AccountEntryService(
@@ -20,36 +21,50 @@ namespace Super.Digital.Service
             _notifier = notifier;
         }
 
-        private void Validation(AccountModel accountModel)
+        private void Validation(AccountEntryModel origin, AccountEntryModel destiny)
         {
-            // if (!_baseService.ExecuteValidation(new AccountValidation(), accountModel)) return;
-
-            //if (Query(src => src.Number == accountModel.Number && src.AccountId != accountModel.AccountId).Result.Any())
-            //{
-            //    _notifier.SetNotification(new Notification("Já existe uma conta cadastrada com esse número."));
-            //    return;
-            //}
+            if (origin.AccountId == destiny.AccountId)
+            {
+                _notifier.SetNotification(new Notification("Número das contas são identicas, favor informar uma número de conta diferente da outra."));
+                return;
+            } 
         }
 
         public async Task Save(AccountEntryModel origin, AccountEntryModel destiny)
         {
+            Validation(origin, destiny);
+            if (_notifier.HasNotification())
+            {
+                return;
+            }
             try
             {
                 Db.Database.BeginTransaction();
-                
-
+                await base.Insert(origin);
+                await base.Insert(destiny);
                 Db.Database.CommitTransaction();
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                _notifier.SetNotification(new Notification("Não foi possível salvar esse registro:" + ex.Message));
                 Db.Database.RollbackTransaction();               
             }
         }
 
-        public Task<IEnumerable<AccountEntryModel>> Select(Guid AccountId)
+        public override Task<List<AccountEntryModel>> List()
         {
-            throw new NotImplementedException();
+            return DbSet.AsNoTracking()
+                .Include(p => p.Account)
+                .ToListAsync();               
+        }
+
+        public async Task<IEnumerable<AccountEntryModel>>Select(string accountNumber)
+        {
+          return await Task.Run(() =>
+          {
+              return List().Result.Where(src => src.Account.Number == accountNumber).ToList();
+          });           
+           
         }
     }
 }

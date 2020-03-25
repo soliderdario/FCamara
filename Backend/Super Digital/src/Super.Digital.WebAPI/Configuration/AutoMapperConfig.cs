@@ -9,7 +9,9 @@ namespace Super.Digital.WebAPI.Configuration
         public AutoMapperConfig()
         {
             CreateMap<AccountModel, AccountViewModel>().ReverseMap();
-            CreateMap<EntryModel, EntryViewModel> ().ReverseMap();  
+            CreateMap<EntryModel, EntryViewModel> ().ReverseMap();
+            CreateMap<AccountEntryModel, AccountEntryViewModel>()
+                .ForMember(dest => dest.Number, act => act.MapFrom(src => src.Account.Number));
         }
     }
 }

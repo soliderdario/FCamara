@@ -1,13 +1,14 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Super.Digital.Domain.Interface;
 using Super.Digital.Domain.Model;
 using Super.Digital.Domain.Types;
 using Super.Digital.Infrastructure.Notifiers;
 using Super.Digital.WebAPI.ViewModel;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Super.Digital.WebAPI.Controllers.V1
 {
@@ -56,7 +57,7 @@ namespace Super.Digital.WebAPI.Controllers.V1
                 }
 
                 var origin = CreateAccountInstance(entry.OriginAccountNumber, entry.Value);
-                var destiny = CreateAccountInstance(entry.DestinyAccountNumber, entry.Value);               
+                var destiny = CreateAccountInstance(entry.DestinyAccountNumber, entry.Value *(-1));               
                 if (!IsValid())
                 {
                     return CustomResponse();
@@ -68,6 +69,22 @@ namespace Super.Digital.WebAPI.Controllers.V1
                 NotifyError(ex.Message);
             }
             return CustomResponse(entry);
+        }
+
+        [HttpGet("list/{accountNumber}")]
+        public async Task<IEnumerable<AccountEntryViewModel>> List(string accountNumber)
+        {
+            try
+            {
+                var result = _mapper.Map<IEnumerable<AccountEntryViewModel>>(await _accountingEntryService.Select(accountNumber));
+                return result;
+            }
+            catch (Exception ex)
+            {
+                NotifyError(ex.Message);
+                return (IEnumerable<AccountEntryViewModel>)BadRequest(ex.Message);
+            }          
+            
         }
     }
 }

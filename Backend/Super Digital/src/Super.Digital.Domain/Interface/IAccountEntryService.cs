@@ -10,6 +10,6 @@ namespace Super.Digital.Domain.Interface
     {
         Task Save(AccountEntryModel origin, AccountEntryModel destiny);
 
-        Task<IEnumerable<AccountEntryModel>> Select(Guid AccountId);
+        Task<IEnumerable<AccountEntryModel>> Select(string accountNumber);
     }
 }
