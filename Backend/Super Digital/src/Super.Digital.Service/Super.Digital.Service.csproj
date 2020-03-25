@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Super.Digital.Data\Super.Digital.Data.csproj" />
+    <ProjectReference Include="..\Super.Digital.Domain\Super.Digital.Domain.csproj" />
+    <ProjectReference Include="..\Super.Digital.Infrastructure\Super.Digital.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+dotnet ef migrations add db01 --project ../super.digital.data --context SuperDigitalDbContext
+
+dotnet ef migrations database update --project ../super.digital.data --context SuperDigitalDbContext
+
+
+docker exec -it fb960ebd56bf4d01f84905dac47107b515fc98c82a192b8f24fe8ec812a2d4dd /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Developer@
+
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=Developer@' -p 1433:1433 -v database-sql-server-2019:/var/opt/mssql -d mcr.microsoft.com/mssql/rhel/server
+
+
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Developer@" -p 1433:1433 -v database-sql-server-2019:/var/opt/mssql -d mcr.microsoft.com/mssql/rhel/server
