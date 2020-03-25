@@ -1,5 +1,5 @@
-﻿using Super.Digital.Domain.Types;
-using System;
+﻿using System;
+using Super.Digital.Domain.Types;
 
 namespace Super.Digital.WebAPI.ViewModel
 {

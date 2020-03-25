@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
-using Super.Digital.Domain.Model;
 using System.Text.RegularExpressions;
+using Super.Digital.Domain.Model;
 
 namespace Super.Digital.Domain.Validations
 {

@@ -1,14 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using Super.Digital.Data;
 using Super.Digital.Domain.Interface;
 using Super.Digital.Infrastructure.Notifiers;
 using Super.Digital.Service;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Super.Digital.WebAPI.Configuration
 {

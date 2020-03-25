@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using Super.Digital.Domain.Interface;
 using Super.Digital.Infrastructure.Notifiers;
 using Super.Digital.WebAPI.ViewModel;
 using Super.Digital.Domain.Model;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Super.Digital.WebAPI.Controllers.V1
-{
-    //[Authorize]
+{   
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class AccountController : MainController

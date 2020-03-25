@@ -1,8 +1,8 @@
-﻿using Super.Digital.Domain.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Super.Digital.Domain.Model;
 
 namespace Super.Digital.Domain.Interface
 {

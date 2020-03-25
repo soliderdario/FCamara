@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Super.Digital.Data.Mappings;
+﻿using Super.Digital.Data.Mappings;
+using Microsoft.EntityFrameworkCore;
 
 namespace Super.Digital.Data
 {

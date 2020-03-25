@@ -11,8 +11,7 @@ using Super.Digital.Infrastructure.Notifiers;
 using Super.Digital.WebAPI.ViewModel;
 
 namespace Super.Digital.WebAPI.Controllers.V1
-{
-    //[Authorize]
+{    
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class AccountingEntryController : MainController
@@ -38,7 +37,8 @@ namespace Super.Digital.WebAPI.Controllers.V1
                 return null;
             }
             return new AccountEntryModel
-            {                
+            {
+                AccountEntryId =  System.Guid.NewGuid(),
                 AccountId = accountModel.AccountId,                
                 Value = value,
                 Operation = OperationType.Insert,

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Super.Digital.WebAPI.ViewModel
 {
@@ -17,6 +14,7 @@ namespace Super.Digital.WebAPI.ViewModel
 
     public class AccountEntryViewModel
     {
+        public Guid AccountEntryId { get; set; }
         public Guid AccountId { get; set; }
         public decimal Value { get; set; }
         public string Number { get; set; }

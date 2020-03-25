@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Super.Digital.Domain.Interface;
-using Super.Digital.Domain.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Super.Digital.Domain.Interface;
+using Super.Digital.Domain.Model;
 
 namespace Super.Digital.Data.Repository
 {

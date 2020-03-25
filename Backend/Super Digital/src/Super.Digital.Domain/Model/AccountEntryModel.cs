@@ -1,7 +1,5 @@
-﻿using Super.Digital.Domain.Types;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Super.Digital.Domain.Model
 {
@@ -15,6 +13,7 @@ namespace Super.Digital.Domain.Model
 
     public class AccountEntryModel :BaseModel
     {
+        public Guid AccountEntryId { get; set; }
         public  Guid AccountId { get; set; }        
         public decimal Value { get; set; }
 

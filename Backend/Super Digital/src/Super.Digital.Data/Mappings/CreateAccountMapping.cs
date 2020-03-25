@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Super.Digital.Domain.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Super.Digital.Data.Mappings
 {
@@ -27,8 +24,9 @@ namespace Super.Digital.Data.Mappings
         public void Configure(EntityTypeBuilder<AccountEntryModel> builder)
         {
             builder.ToTable("AccountEntry");
+            builder.Property(f => f.AccountEntryId).IsRequired().HasMaxLength(40);
+            builder.HasKey(f => f.AccountEntryId);
             builder.Property(f => f.AccountId).IsRequired().HasMaxLength(40);
-            builder.HasKey(f => f.AccountId);
             builder.Property(f => f.Value).IsRequired().HasColumnType("decimal(18,2)");                
             builder.Property(f => f.DateCreate).IsRequired();
             builder.Property(f => f.DateUpdate).IsRequired(false);

@@ -1,8 +1,6 @@
-﻿using Super.Digital.Domain.Types;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using Super.Digital.Domain.Types;
 
 namespace Super.Digital.Domain.Model
 {
