@@ -46,6 +46,12 @@ namespace Super.Digital.WebAPI.Controllers.V1
             };
         }
 
+        [HttpGet("ping")]
+        public string Get()
+        {
+            return "Pong";
+        }
+
         [HttpPost("create")]
         public async Task<ActionResult<EntryViewModel>> Create(EntryViewModel entry)
         {

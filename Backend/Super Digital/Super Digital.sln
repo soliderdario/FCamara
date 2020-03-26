@@ -13,15 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Service", "4 - Service"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infrastructure", "5 - Infrastructure", "{4D98692B-402A-4DC4-AA8D-DF6A0375354B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super.Digital.Infrastructure", "src\Super.Digital.Infrastructure\Super.Digital.Infrastructure.csproj", "{3F8D86B4-EEFA-43E1-8D5D-1AED2F3E05BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Super.Digital.Infrastructure", "src\Super.Digital.Infrastructure\Super.Digital.Infrastructure.csproj", "{3F8D86B4-EEFA-43E1-8D5D-1AED2F3E05BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super.Digital.Domain", "src\Super.Digital.Domain\Super.Digital.Domain.csproj", "{F4895C31-5A79-435A-B591-8444F1AEE239}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Super.Digital.Domain", "src\Super.Digital.Domain\Super.Digital.Domain.csproj", "{F4895C31-5A79-435A-B591-8444F1AEE239}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super.Digital.Service", "src\Super.Digital.Service\Super.Digital.Service.csproj", "{67CE5663-3AA8-4324-9502-5A77B717EFB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Super.Digital.Service", "src\Super.Digital.Service\Super.Digital.Service.csproj", "{67CE5663-3AA8-4324-9502-5A77B717EFB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super.Digital.Data", "src\Super.Digital.Data\Super.Digital.Data.csproj", "{76E3D7BE-8D4B-48F7-9A7C-44D36A3E2489}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Super.Digital.Data", "src\Super.Digital.Data\Super.Digital.Data.csproj", "{76E3D7BE-8D4B-48F7-9A7C-44D36A3E2489}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super.Digital.WebAPI", "src\Super.Digital.WebAPI\Super.Digital.WebAPI.csproj", "{B369330D-9566-4FD4-9B4E-518DF0D45DE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Super.Digital.WebAPI", "src\Super.Digital.WebAPI\Super.Digital.WebAPI.csproj", "{B369330D-9566-4FD4-9B4E-518DF0D45DE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Test", "6 - Test", "{CE45CD0E-FC04-4EFE-A3DC-B274ACC709E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super.Digital.Test", "src\Super.Digital.Test\Super.Digital.Test.csproj", "{2F53E95F-3903-4E71-A8E6-A063FFC4A6C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{B369330D-9566-4FD4-9B4E-518DF0D45DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B369330D-9566-4FD4-9B4E-518DF0D45DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B369330D-9566-4FD4-9B4E-518DF0D45DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F53E95F-3903-4E71-A8E6-A063FFC4A6C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F53E95F-3903-4E71-A8E6-A063FFC4A6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F53E95F-3903-4E71-A8E6-A063FFC4A6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F53E95F-3903-4E71-A8E6-A063FFC4A6C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,7 @@ Global
 		{67CE5663-3AA8-4324-9502-5A77B717EFB5} = {35361808-4719-4CF1-9235-BB639088E07C}
 		{76E3D7BE-8D4B-48F7-9A7C-44D36A3E2489} = {C7CEE189-D7AD-4F79-94A7-8595623044AE}
 		{B369330D-9566-4FD4-9B4E-518DF0D45DE9} = {4E4C1D86-06AB-41EE-A1D0-893FBF95D09E}
+		{2F53E95F-3903-4E71-A8E6-A063FFC4A6C1} = {CE45CD0E-FC04-4EFE-A3DC-B274ACC709E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BABF0248-12F1-436D-9491-858753B94312}

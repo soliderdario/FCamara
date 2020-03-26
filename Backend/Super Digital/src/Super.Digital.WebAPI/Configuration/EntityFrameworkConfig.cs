@@ -8,6 +8,7 @@ namespace Super.Digital.WebAPI.Configuration
     {
         public static IServiceCollection AddDbContextConfiguration(this IServiceCollection services, string connectionstring)
         {
+            connectionstring = "Data Source=localhost;Initial Catalog=SuperDigital;User Id=sa;Password=Developer@;";
             services.AddDbContext<SuperDigitalDbContext>(options =>
             {
                 options.UseSqlServer(connectionstring);
