@@ -1,7 +1,3 @@
-C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.csprojAssemblyReference.cache
-C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.csproj.CoreCompileInputs.cache
-C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.AssemblyInfoInputs.cache
-C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.AssemblyInfo.cs
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\bin\Debug\netcoreapp3.1\Super.Digital.Service.deps.json
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\bin\Debug\netcoreapp3.1\Super.Digital.Service.dll
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\bin\Debug\netcoreapp3.1\Super.Digital.Service.pdb
@@ -11,6 +7,10 @@ C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\bin\Debug\netcor
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\bin\Debug\netcoreapp3.1\Super.Digital.Data.pdb
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\bin\Debug\netcoreapp3.1\Super.Digital.Domain.pdb
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\bin\Debug\netcoreapp3.1\Super.Digital.Infrastructure.pdb
+C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.csprojAssemblyReference.cache
+C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.csproj.CoreCompileInputs.cache
+C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.AssemblyInfoInputs.cache
+C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.AssemblyInfo.cs
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.csproj.CopyComplete
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.dll
 C:\lixo\FCamara\Backend\Super Digital\src\Super.Digital.Service\obj\Debug\netcoreapp3.1\Super.Digital.Service.pdb
